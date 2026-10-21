@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexicon Race</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-box">
+    
+        <div id="game-screen">
+            <h2>Ketik Kata Di Bawah Ini:</h2>
+            <div id="word-to-type">READY</div>
+            <input type="text" id="word-input" placeholder="Mulai mengetik di sini..." autocomplete="off" autofocus>
+            
+            <div class="stats">
+                <div>Waktu: <span id="time-left">15</span>s</div>
+                <div>Skor: <span id="score">0</span></div>
+            </div>
+        </div>
+      
+        <div id="game-over-screen" class="hidden">
+            <h1>Game Over!</h1>
+            <p>Wah hebat! Skor Akhir Kamu:</p>
+            <div class="final-score"><span id="final-score-val">0</span> Poin</div>
+            <button id="restart-btn">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
