@@ -1,9 +1,9 @@
 // Daftar kata edukatif/umum untuk lomba (Bisa kamu ganti atau tambah sendiri)
 const words = [
-    "TEKNOLOGI", "KOMPUTER", "PROGRAMMING", "DIGITAL", "INTERNET",
-    "GITHUB", "JAVASCRIPT", "WEBSITE", "EDUKASI", "KREATIF",
-    "INOVASI", "PRESTASI", "SEMANGAT", "BELAJAR", "KODE",
-    "LOGIKA", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE"
+    "Teknologi", "Komputer", "Programming", "Digital", "Internet",
+    "Github", "Javascript", "Website", "Edukasi", "Kreatif",
+    "Inovasi", "Prestasi", "Semangat", "Belajar", "Kode",
+    "Logika", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE"
 ];
 
 let score = 0;
