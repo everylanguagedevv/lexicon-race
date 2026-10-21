@@ -3,7 +3,7 @@ const words = [
     "TEKNOLOGI", "KOMPUTER", "PROGRAMMING", "DIGITAL", "INTERNET",
     "GITHUB", "JAVASCRIPT", "HTML", "CSS", "WEBSITE", "EDUKASI", "KREATIF",
     "INOVASI", "PRESTASI", "SEMANGAT", "BELAJAR", "KODE",
-    "LOGIKA", "APLIKASI", "Network", "Security", "Software", "Kogtik", "OTN", "Gadget", "Cerdas"
+    "LOGIKA", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE", "KOGTIK", "OTN", "GADGET", "CERDAS"
 ];
 
 let score = 0;
