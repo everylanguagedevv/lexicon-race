@@ -1,10 +1,10 @@
-// kata yang akan digunakan
+// kata yang akan digunakan (ku kehilangan ide buat cari kata-katanya loh rek)
 const words = [
     "TEKNOLOGI", "KOMPUTER", "PROGRAMMING", "DIGITAL", "INTERNET",
     "GITHUB", "JAVASCRIPT", "HTML", "CSS", "WEBSITE", "EDUKASI", "KREATIF",
     "INOVASI", "PRESTASI", "SEMANGAT", "BELAJAR", "KODE",
     "LOGIKA", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE", "KOGTIK", "OTN8",
-    "GADGET", "CERDAS", "SISTEM", "PERANGKAT", "JARINGAN"
+    "GADGET", "CERDAS", "SISTEM", "PERANGKAT", "JARINGAN", "KEREN"
 ];
 
 // variabel game
