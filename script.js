@@ -93,7 +93,7 @@ function gameSelesai() {
 
 // cek fungsi
 function cekKetikanUser() {
-    // Timer otomatis jalan saat sudah ketik
+    // timer yang otomatis jalan ketika sudah diketik!!!
     if (statusMain == false && kolomInput.value.length > 0) {
         statusMain = true;
         hitungMundur = setInterval(jalankanTimer, 1000);
@@ -102,7 +102,7 @@ function cekKetikanUser() {
     var isiInput = kolomInput.value;
     var kataTarget = tampilKata.innerText;
 
-    // Deteksi spasi pakai cara yang manual
+    // detect space secara manual
     if (isiInput.charAt(isiInput.length - 1) === ' ') {
         var kataBersih = isiInput.trim().toUpperCase();
         totalKetikan = totalKetikan + 1;
