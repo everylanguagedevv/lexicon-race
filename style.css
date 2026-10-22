@@ -6,6 +6,7 @@
     font-family: 'Courier New', Courier, monospace, sans-serif;
 }
 
+/* desain utama CSS */
 body {
     background-color: #F0F0F0;
     color: #000000;
@@ -26,6 +27,7 @@ body {
     text-align: center;
 }
 
+/*judul */
 .title-brutal {
     font-size: 38px;
     font-weight: 900;
