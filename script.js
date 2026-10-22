@@ -3,7 +3,7 @@ const words = [
     "TEKNOLOGI", "KOMPUTER", "PROGRAMMING", "DIGITAL", "INTERNET",
     "GITHUB", "JAVASCRIPT", "HTML", "CSS", "WEBSITE", "EDUKASI", "KREATIF",
     "INOVASI", "PRESTASI", "SEMANGAT", "BELAJAR", "KODE",
-    "LOGIKA", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE", "KOGTIK", "OTN",
+    "LOGIKA", "APLIKASI", "NETWORK", "SECURITY", "SOFTWARE", "KOGTIK", "OTN8",
     "GADGET", "CERDAS", "SISTEM", "PERANGKAT", "JARINGAN"
 ];
 
@@ -47,7 +47,7 @@ function mulaiUlangGame() {
     kolomInput.value = "";
     kolomInput.disabled = false;
     
-    // Ambil rekor tertinggi dari browser supaya tetap tersimpan
+    // save rekor tertinggi di browser
     var cekRekorLama = localStorage.getItem('typingHighScore') || 0;
     if (teksRekor) teksRekor.innerText = cekRekorLama;
     
@@ -55,7 +55,7 @@ function mulaiUlangGame() {
     kolomInput.focus();
 }
 
-// Logika jalannya waktu timer (dikurangi tiap 1 detik)
+// logika waktu timer
 function jalankanTimer() {
     if (waktuSisa > 0) {
         waktuSisa = waktuSisa - 1;
@@ -72,7 +72,7 @@ function jalankanTimer() {
     }
 }
 
-// Fungsi pas waktu habis
+// pas waktunya udah abis
 function gameSelesai() {
     clearInterval(hitungMundur);
     statusMain = false;
