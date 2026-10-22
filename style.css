@@ -112,7 +112,7 @@ h2 {
     display: none !important;
 }
 
-/* Game Over Presentation */
+/* Game over screen */
 #game-over-screen h1 {
     font-size: 2.2rem;
     font-weight: 800;
@@ -135,7 +135,7 @@ h2 {
     filter: drop-shadow(0 4px 10px rgba(52, 211, 153, 0.3));
 }
 
-/* Restart Action Trigger */
+/* Trigger untuk restart */
 #restart-btn {
     width: 100%;
     padding: 14px;
