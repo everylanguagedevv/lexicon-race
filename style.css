@@ -1,4 +1,4 @@
-/* Reset & Base Style */
+/* CSS */
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +40,7 @@ h2 {
     margin-bottom: 8px;
 }
 
-/* Active Word Display */
+/* Display kata */
 #word-to-type {
     font-size: 3.2rem;
     font-weight: 800;
@@ -52,7 +52,7 @@ h2 {
     filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.3));
 }
 
-/* Text Input Field */
+/* Teks input */
 #word-input {
     width: 100%;
     padding: 16px;
@@ -79,7 +79,7 @@ h2 {
     font-weight: 400;
 }
 
-/* Dashboard Layout */
+/* Layout */
 .stats {
     display: flex;
     justify-content: space-between;
@@ -108,7 +108,6 @@ h2 {
 #time-left { color: #f87171; }
 #score { color: #34d399; }
 
-/* Strict Visibility Manager */
 .hidden {
     display: none !important;
 }
