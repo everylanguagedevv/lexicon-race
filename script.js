@@ -11,80 +11,87 @@ let timeLeft = 20; // Durasi awal game dalam detik
 let timer;
 let isPlaying = false;
 
-// Ambil elemen DOM
-const wordToType = document.getElementById('word-to-type');
-const wordInput = document.getElementById('word-input');
-const timeLeftDisplay = document.getElementById('time-left');
-const scoreDisplay = document.getElementById('score');
-const gameScreen = document.getElementById('game-screen');
-const gameOverScreen = document.getElementById('game-over-screen');
-const finalScoreVal = document.getElementById('final-score-val');
-const restartBtn = document.getElementById('restart-btn');
+// Selektor Elemen DOM dari HTML
+const typographyDeck = document.getElementById('word-to-type');
+const interactiveInput = document.getElementById('word-input');
+const durationPanel = document.getElementById('time-left');
+const scorePanel = document.getElementById('score');
+const primaryGameView = document.getElementById('game-screen');
+const failureOverlay = document.getElementById('game-over-screen');
+const scoreTallyFinal = document.getElementById('final-score-val');
+const actionReset = document.getElementById('restart-btn');
 
-// Fungsi untuk mengambil kata acak
-function showRandomWord() {
-    const randomIndex = Math.floor(Math.random() * words.length);
-    wordToType.innerText = words[randomIndex];
+// Fungsi untuk memilih dan menampilkan kata acak dari library
+function deployRandomWord() {
+    const selectorSeed = Math.floor(Math.random() * wordsLibrary.length);
+    typographyDeck.innerText = wordsLibrary[selectorSeed];
 }
 
-// Fungsi untuk memulai hitung mundur waktu
-function startTimer() {
-    timer = setInterval(() => {
-        timeLeft--;
-        timeLeftDisplay.innerText = timeLeft;
+// Fungsi pengatur jalannya hitung mundur waktu game per 1 detik
+function processCountdown() {
+    clockInterval = setInterval(() => {
+        remainingTime--;
+        durationPanel.innerText = remainingTime + "s";
 
-        if (timeLeft === 0) {
-            clearInterval(timer);
-            endGame();
+        // Jika waktu habis, matikan interval dan pemicu fungsi game over
+        if (remainingTime <= 0) {
+            clearInterval(clockInterval);
+            triggerFailureState(); 
         }
     }, 1000);
 }
 
-// Fungsi untuk memulai game pertama kali / reset
-function startGame() {
-    score = 0;
-    timeLeft = 15; // Set ulang waktu lomba
-    isPlaying = true;
+// Fungsi utama untuk mereset dan memulai ulang sesi game baru
+function initializeSession() {
+    activeScore = 0;
+    remainingTime = 20; 
+    executionState = true;
     
-    scoreDisplay.innerText = score;
-    timeLeftDisplay.innerText = timeLeft;
-    wordInput.value = '';
+    scorePanel.innerText = activeScore;
+    durationPanel.innerText = remainingTime + "s";
+    interactiveInput.value = '';
     
-    gameScreen.classList.remove('hidden');
-    gameOverScreen.classList.add('hidden');
+    // Logika transisi penukaran visibilitas layar (sembunyikan game over, buka gameplay)
+    primaryGameView.classList.remove('hidden');
+    failureOverlay.classList.add('hidden'); 
     
-    showRandomWord();
-    wordInput.focus();
-    startTimer();
+    deployRandomWord();
+    interactiveInput.focus();
+    clearInterval(clockInterval); // Mencegah terjadinya penumpukan proses interval clock ganda
+    processCountdown();
 }
 
-// Fungsi saat waktu habis (Game Over)
-function endGame() {
-    isPlaying = false;
-    gameScreen.classList.add('hidden');
-    gameOverScreen.classList.remove('hidden');
-    finalScoreVal.innerText = score;
+// Fungsi saat kalah (Hanya dipicu saat waktu benar-benar 0 detik)
+function triggerFailureState() {
+    executionState = false;
+    // Penukaran layar tegas: sembunyikan gameplay, tampilkan layar Game Over dan poin akhir
+    primaryGameView.classList.add('hidden');
+    failureOverlay.classList.remove('hidden');
+    scoreTallyFinal.innerText = activeScore;
 }
 
-// Event listener saat pemain mengetik
-wordInput.addEventListener('input', () => {
-    if (!isPlaying) return;
+// Handler pemantau ketikan pemain secara real-time
+interactiveInput.addEventListener('input', () => {
+    if (!executionState) return;
 
-    // Jika ketikan pemain sama dengan kata yang muncul (diubah ke uppercase agar adil)
-    if (wordInput.value.toUpperCase() === wordToType.innerText) {
-        score++;
-        scoreDisplay.innerText = score;
-        wordInput.value = ''; // Kosongkan kotak input
-        showRandomWord();     // Ganti kata baru
+    // Evaluasi jika ketikan dibersihkan spasi & diubah ke kapital cocok dengan papan kata
+    if (interactiveInput.value.trim().toUpperCase() === typographyDeck.innerText) {
+        activeScore++;
+        scorePanel.innerText = activeScore;
+        interactiveInput.value = ''; // Kosongkan kembali kolom input ketikan
+        deployRandomWord();          // Ganti kata baru selanjutnya
         
-        // Bonus waktu +2 detik setiap berhasil mengetik benar (opsional, biar makin menantang)
-        timeLeft += 2;
-        timeLeftDisplay.innerText = timeLeft;
+        // Sistem reward kompetitif: bonus tambahan waktu +2 detik tiap berhasil ketik benar
+        remainingTime += 2;
+        durationPanel.innerText = remainingTime + "s";
     }
 });
 
-// Jalankan game saat tombol restart diklik
-restartBtn.addEventListener('click', startGame);
+// Jalankan fungsi reset game ketika tombol di klik
+actionReset.addEventListener('click', initializeSession);
 
-// Otomatis mulai game saat halaman pertama kali dibuka
-window.addEventListener('DOMContentLoaded', startGame);
+// Memastikan visual game siap berjalan rapi hanya saat dokumen DOM selesai dimuat utuh
+window.addEventListener('DOMContentLoaded', () => {
+    failureOverlay.classList.add('hidden'); // Memastikan kondisi awal screen kalah tersembunyi mutlak
+    initializeSession();
+});
