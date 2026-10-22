@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexicon Race - Game milikku</title>
+    <title>Lexicon Race - Game Milikku</title>
+    <!-- Manggil CSS di head -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="box-game-utama">
-    
-        <div id="game-screen">
-            <h2>Ketik kata di bawah ini, lalu tekan spasi:</h2>
-            <div id="word-to-type"></div>
-            <input type="text" id="word-input" placeholder="Mulai mengetik di sini..." autocomplete="off" autofocus>
-            
-            <div class="stats-container">
-                <div>Waktu: <span id="time">60</span>s</div>
-                <div>Skor: <span id="score">0</span></div>
-            </div>
-        </div>
 
-        <!-- fitur rekor-->
-        <div class="kotak-skor-kecil">
-                <span>REKOR TERTINGGI</span>
+    <div class="box-game-utama">
+        <h1>LEXICON RACE</h1>
+        <p class="sub-judul">KETIK KATA DI BAWAH LALU TEKAN SPASI!</p>
+
+        <div class="baris-info-game">
+            <div class="kotak-skor-kecil">
+                <span>WAKTU</span>
+                <div class="angka-info" id="time">60</div>
+            </div>
+            <div class="kotak-skor-kecil">
+                <span>SKOR</span>
+                <div class="angka-info" id="wpm">0</div>
+            </div>
+            <div class="kotak-skor-kecil">
+                <span>AKURASI</span>
+                <div class="angka-info" id="accuracy">0%</div>
+            </div>
+            <div class="kotak-skor-kecil">
+                <span>REKOR</span>
                 <div class="angka-info" id="high-score">0</div>
             </div>
-        </div>
-      
-        <div id="game-over-screen" class="hidden">
-            <h1>Game Over!</h1>
-            <p>Hebat banget ya kamu...Skor akhir kamu adalah:</p>
-            <div class="final-score"><span id="final-score-val">0</span>Poin</div>
-            <button id="restart-btn">Main lagi gak nih?</button>
-        </div>
+>
+        <div class="area-tampil-kata" id="word-to-type">READY</div>
+        <input type="text" class="kolom-ketik-user" id="word-input" placeholder="Mulai mengetik di sini..." autocomplete="off" autofocus>
+        <button class="tombol-reset-game" id="btn-restart">MAIN LAGI</button>
     </div>
 
+    <!-- File JS -->
     <script src="script.js"></script>
 </body>
 </html>
