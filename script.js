@@ -25,10 +25,10 @@ var teksAkurasi = document.getElementById('accuracy');
 var tombolUlang = document.getElementById('btn-restart');
 var teksRekor = document.getElementById('high-score');
 
-// Acak kata
+// Acak kata - SEKARANG SUDAH FIX MENGGUNAKAN ARRAY 'words'
 function acakKataSekarang() {
-    var angkaAcak = Math.floor(Math.random() * listKata.length);
-    return listKata[angkaAcak];
+    var angkaAcak = Math.floor(Math.random() * words.length);
+    return words[angkaAcak];
 }
 
 // Setting awal
@@ -63,7 +63,6 @@ function jalankanTimer() {
         
         var waktuBerjalan = batasWaktu - waktuSisa;
         if (waktuBerjalan > 0) {
-            // Rumus hitung WPM standar
             var hitungWpm = Math.round((ketikanBenar) / (waktuBerjalan / 60));
             teksWpm.innerText = hitungWpm;
         }
@@ -82,7 +81,6 @@ function gameSelesai() {
     teksWpm.innerText = hasilAkhirWpm;
     tampilKata.innerText = "GAME OVER! WAKTU HABIS.";
 
-    // Cek apakah skor baru berhasil memecahkan rekor tertinggi
     var rekorTertinggi = localStorage.getItem('typingHighScore') || 0;
     if (hasilAkhirWpm > parseInt(rekorTertinggi)) {
         localStorage.setItem('typingHighScore', hasilAkhirWpm);
@@ -93,7 +91,6 @@ function gameSelesai() {
 
 // cek fungsi
 function cekKetikanUser() {
-    // timer yang otomatis jalan ketika sudah diketik!!!
     if (statusMain == false && kolomInput.value.length > 0) {
         statusMain = true;
         hitungMundur = setInterval(jalankanTimer, 1000);
@@ -102,7 +99,6 @@ function cekKetikanUser() {
     var isiInput = kolomInput.value;
     var kataTarget = tampilKata.innerText;
 
-    // detect space secara manual
     if (isiInput.charAt(isiInput.length - 1) === ' ') {
         var kataBersih = isiInput.trim().toUpperCase();
         totalKetikan = totalKetikan + 1;
@@ -112,7 +108,6 @@ function cekKetikanUser() {
             skorWpm = skorWpm + 1;
         }
 
-        // Hitung persentase akurasi
         var hitungAkurasi = Math.round((ketikanBenar / totalKetikan) * 100);
         teksAkurasi.innerText = hitungAkurasi + "%";
         
@@ -121,10 +116,7 @@ function cekKetikanUser() {
     }
 }
 
-// Pasang Event ke elemen HTML
 kolomInput.addEventListener('input', cekKetikanUser);
 tombolUlang.addEventListener('click', mulaiUlangGame);
 
-// Fungsi awal
 window.addEventListener('load', mulaiUlangGame);
-
