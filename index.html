@@ -3,40 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexicon Race - Game Milikku</title>
-    <!-- Manggil CSS di head -->
+    <title>Lexicon race - Asah kemampuan mengetik</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="box-game-utama">
-        <h1>LEXICON RACE</h1>
-        <p class="sub-judul">KETIK KATA DI BAWAH LALU TEKAN SPASI!</p>
+    <!-- border khas brutalism -->
+    <div class="box-utama-brutal">
+        
+        <h1 class="title-brutal">LEXICON RACE</h1>
+        <p class="panduan-teks">TEKAN SPASI SETELAH MENGETIK KATA DI BAWAH!</p>
 
-        <div class="baris-info-game">
-            <div class="kotak-skor-kecil">
-                <span>WAKTU</span>
+        <!-- baris statistik game -->
+        <div class="papan-info-mentah">
+            <div class="kartu-info">
+                <span class="label-info">WAKTU</span>
                 <div class="angka-info" id="time">60</div>
             </div>
-            <div class="kotak-skor-kecil">
-                <span>SKOR</span>
+            
+            <div class="kartu-info">
+                <span class="label-info">WPM</span>
                 <div class="angka-info" id="wpm">0</div>
             </div>
-            <div class="kotak-skor-kecil">
-                <span>AKURASI</span>
+            
+            <div class="kartu-info">
+                <span class="label-info">AKURASI</span>
                 <div class="angka-info" id="accuracy">0%</div>
             </div>
-            <div class="kotak-skor-kecil">
-                <span>REKOR</span>
+
+            <div class="kartu-info aksen-biru">
+                <span class="label-info">REKOR</span>
                 <div class="angka-info" id="high-score">0</div>
             </div>
->
-        <div class="area-tampil-kata" id="word-to-type">READY</div>
-        <input type="text" class="kolom-ketik-user" id="word-input" placeholder="Mulai mengetik di sini..." autocomplete="off" autofocus>
-        <button class="tombol-reset-game" id="btn-restart">MAIN LAGI</button>
-    </div>
+        </div>
 
-    <!-- File JS -->
+        <!-- Box Tampilan Kata -->
+        <div class="box-kata-target" id="word-to-type">READY</div>
+        
+        <!-- Input Field Manual -->
+        <input type="text" class="input-brutal" id="word-input" placeholder="KETIK DI SINI..." autocomplete="off" autofocus>
+        <button class="tombol-brutal" id="btn-restart">MAIN LAGI</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
