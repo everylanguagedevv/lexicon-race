@@ -1,5 +1,4 @@
-/* CSS Tema brutalisme yang sengaja sy pilih..*/
-
+/* Saya sengaja memakai tema brutalisme karena gayanya unik.. */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,14 +16,13 @@ body {
     padding: 20px;
 }
 
-/* Kotak kaku, cirk khas dari tema brutalisme */
 .box-utama-brutal {
     background-color: #FFFFFF;
     padding: 40px;
     width: 100%;
     max-width: 650px;
     border: 4px solid #000000;
-    box-shadow: 10px 10px 0px #000000; /* Shadow patah dengan kemiringan 90 derajat */
+    box-shadow: 10px 10px 0px #000000;
     text-align: center;
 }
 
@@ -66,11 +64,10 @@ body {
     text-align: left;
 }
 
-/* Blok aksen pembeda warna kaku */
 .kartu-info.aksen-biru {
     background-color: #0000FF;
-    color: #FFFFFF;
 }
+
 .kartu-info.aksen-biru .label-info,
 .kartu-info.aksen-biru .angka-info {
     color: #FFFFFF;
@@ -135,7 +132,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Efek klik tombol manual */
 .tombol-brutal:active {
     transform: translate(4px, 4px);
     box-shadow: 0px 0px 0px #000000;
