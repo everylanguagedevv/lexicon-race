@@ -8,7 +8,7 @@ const words = [
 ];
 
 // variabel game
-var batasWaktu = 60;
+var batasWaktu = 120;
 var waktuSisa = batasWaktu;
 var skorWpm = 0;
 var totalKetikan = 0;
