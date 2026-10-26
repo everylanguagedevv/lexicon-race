@@ -32,7 +32,7 @@ body {
     font-size: 38px;
     font-weight: 900;
     letter-spacing: -1px;
-    background-color: #0000FF;
+    background-color: #800000;
     color: #FFFFFF;
     padding: 10px;
     border: 4px solid #000000;
@@ -67,12 +67,12 @@ body {
     text-align: left;
 }
 
-.kartu-info.aksen-biru {
-    background-color: #0000FF;
+.kartu-info.aksen-marun {
+    background-color: #800000;
 }
 
-.kartu-info.aksen-biru .label-info,
-.kartu-info.aksen-biru .angka-info {
+.kartu-info.aksen-marun .label-info,
+.kartu-info.aksen-marun .angka-info {
     color: #FFFFFF;
 }
 
@@ -91,7 +91,7 @@ body {
 }
 
 .box-kata-target {
-    background-color: #FFFF00;
+    background-color: #800000;
     color: #000000;
     font-size: 32px;
     font-weight: 900;
@@ -124,7 +124,7 @@ body {
 
 .tombol-brutal {
     margin-top: 35px;
-    background-color: #FFFF00;
+    background-color: #800000;
     color: #000000;
     border: 3px solid #000000;
     padding: 15px 40px;
